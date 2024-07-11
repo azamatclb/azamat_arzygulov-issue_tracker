@@ -22,5 +22,5 @@ class TaskForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['type'].widget = forms.CheckboxSelectMultiple()
         self.fields['type'].queryset = Type.objects.all()
-        self.fields['status'].queryset = Status.objects.all()

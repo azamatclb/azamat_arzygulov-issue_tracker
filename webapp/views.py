@@ -6,7 +6,6 @@ from webapp.forms import TaskForm
 from webapp.models import Task
 
 
-# Create your views here.
 class TasksListView(TemplateView):
     template_name = 'task_list.html'
 
@@ -22,15 +21,17 @@ class AddTaskView(View):
 
     def get(self, request, *args, **kwargs):
         form = TaskForm()
-        return render(request, "task_add.html", context={'form': form})
+        return render(request, "task_add.html", {'form': form})
 
     def post(self, request, *args, **kwargs):
         form = TaskForm(data=request.POST)
         if form.is_valid():
             task = form.save()
+            type = form.cleaned_data['type']
+            task.type.set(type)
             return redirect("tasks_list")
         else:
-            return render(request, "task_add.html", context={'form': form})
+            return render(request, "task_add.html", {'form': form})
 
 
 class TaskDetailView(TemplateView):
@@ -50,16 +51,16 @@ class TaskUpdateView(View):
     def get(self, request, pk, *args, **kwargs):
         task = get_object_or_404(Task, pk=pk)
         form = TaskForm(instance=task)
-        return render(request, "task_update.html", context={'form': form, 'task': task})
+        return render(request, "task_update.html", {'form': form, 'task': task})
 
     def post(self, request, pk, *args, **kwargs):
         task = get_object_or_404(Task, pk=pk)
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
-            return redirect("task_view", pk=task.pk)
+            return redirect("tasks_list")
         else:
-            return render(request, "task_update.html", context={'form': form, 'task': task})
+            return render(request, "task_update.html", {'form': form, 'task': task})
 
 
 class TaskDeleteView(View):
@@ -68,7 +69,7 @@ class TaskDeleteView(View):
 
     def get(self, request, pk, *args, **kwargs):
         task = get_object_or_404(Task, pk=pk)
-        return render(request, "task_delete.html", context={'task': task})
+        return render(request, "task_delete.html", {'task': task})
 
     def post(self, request, pk, *args, **kwargs):
         task = get_object_or_404(Task, pk=pk)
