@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Просмотр задачи</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ task.summary }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Тип: <strong>{{ task.type }}</strong></h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Статус: <strong>{{ task.status }}</strong></h6>
+                <p class="card-text">{{ task.description }}</p>
+                
+                <a href="{% url 'tasks_list' %}" class="btn btn-primary">Назад</a>
+                <a href="{% url 'task_update' task.pk %}" class="btn btn-warning text-light">Редактировать</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
