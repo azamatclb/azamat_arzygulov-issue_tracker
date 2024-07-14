@@ -16,8 +16,8 @@ class TasksListView(TemplateView):
 
 
 class AddTaskView(View):
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super().dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
         form = TaskForm()
@@ -37,9 +37,9 @@ class AddTaskView(View):
 class TaskDetailView(TemplateView):
     template_name = 'task_detail.html'
 
-    def get_context_data(self, pk, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        task = get_object_or_404(Task, pk=pk)
+        task = get_object_or_404(Task, pk=kwargs.get('pk'))
         context['task'] = task
         return context
 
