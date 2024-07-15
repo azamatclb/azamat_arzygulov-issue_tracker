@@ -13,14 +13,14 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ task.summary }}</h5>
                             <h6 class="card-subtitle mb-2 text-body-secondary">Тип:
-                                <strong>{{ task.type.name|safe }}</strong></h6>
+                                {% for type in task.type.all %}
+
+                                    <strong>{{ type }}</strong>
+                                {% endfor %}
+                            </h6>
                             <h6 class="card-subtitle mb-2 text-body-secondary">Статус:
                                 <strong>{{ task.status }}</strong></h6>
                             <p class="card-text"></p>
-                            {#                            <a href="{% url 'task_view' task.pk %}" class="btn btn-primary">Подробнее</a>#}
-                            {#                            <a href="{% url 'task_update' task.pk %}"#}
-                            {#                               class="text-light btn btn-warning">Редактировать</a>#}
-                            {#                            <a href="{% url 'task_delete' task.pk %}" class="btn btn-danger">Удалить</a>#}
                             <div class="btn btn-primary">
                                 <a href="{% url 'task_view' task.pk %}" class="btn text-light">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
