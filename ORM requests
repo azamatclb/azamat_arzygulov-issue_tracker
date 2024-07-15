@@ -1,0 +1,13 @@
+1  Task.objects.filter(status=3, updated_date__gte=timezone.now() - timedelta(days=30))
+
+
+2  Task.objects.filter(Q(status=1) | Q(status=3) & Q(type=2) | Q(type=3))
+
+
+3   Task.objects.exclude(status=3).filter(Q(summary__icontains='bug') | Q(type=2))
+
+
+4   Task.objects.values('id', 'summary', "type__name", "status__name")
+
+
+5

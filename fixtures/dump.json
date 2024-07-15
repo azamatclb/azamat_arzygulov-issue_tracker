@@ -63,10 +63,10 @@
     "model": "webapp.task",
     "pk": 1,
     "fields": {
-      "summary": "Homework 51",
+      "summary": "homework1",
       "description": "",
       "status": 3,
-      "type": 1,
+      "type": [2],
       "added_date": "2024-07-11T09:41:03.950Z",
       "updated_date": "2024-07-11T09:41:51.568Z"
     }
@@ -75,10 +75,10 @@
     "model": "webapp.task",
     "pk": 2,
     "fields": {
-      "summary": "Homework 52",
+      "summary": "homework2",
       "description": "",
-      "status": 3,
-      "type": 2,
+      "status": 1,
+      "type": [1],
       "added_date": "2024-07-11T09:41:17.758Z",
       "updated_date": "2024-07-11T09:42:02.043Z"
     }
@@ -87,10 +87,10 @@
     "model": "webapp.task",
     "pk": 3,
     "fields": {
-      "summary": "Homework 53",
+      "summary": "homework3",
       "description": "",
-      "status": 3,
-      "type": 3,
+      "status": 2,
+      "type": [3],
       "added_date": "2024-07-11T09:42:19.665Z",
       "updated_date": "2024-07-11T09:42:19.665Z"
     }
@@ -99,10 +99,10 @@
     "model": "webapp.task",
     "pk": 4,
     "fields": {
-      "summary": "Homework 54",
+      "summary": "homework4",
       "description": "",
-      "status": 1,
-      "type": 1,
+      "status": 3,
+      "type": [1, 3],
       "added_date": "2024-07-11T09:42:39.071Z",
       "updated_date": "2024-07-11T09:42:39.071Z"
     }
@@ -111,10 +111,10 @@
     "model": "webapp.task",
     "pk": 5,
     "fields": {
-      "summary": "Homework 55",
+      "summary": "homework5",
       "description": "",
       "status": 1,
-      "type": 2,
+      "type": [2],
       "added_date": "2024-07-11T09:42:58.086Z",
       "updated_date": "2024-07-11T09:42:58.086Z"
     }
@@ -123,10 +123,10 @@
     "model": "webapp.task",
     "pk": 6,
     "fields": {
-      "summary": "Homework 56",
+      "summary": "homework6",
       "description": "",
       "status": 2,
-      "type": 2,
+      "type": [3],
       "added_date": "2024-07-11T09:43:15.569Z",
       "updated_date": "2024-07-11T09:43:15.569Z"
     }
@@ -135,12 +135,120 @@
     "model": "webapp.task",
     "pk": 7,
     "fields": {
-      "summary": "Homework 57",
+      "summary": "homework7",
       "description": "",
       "status": 2,
-      "type": 3,
+      "type": [1],
       "added_date": "2024-07-11T09:43:26.943Z",
       "updated_date": "2024-07-11T09:43:26.943Z"
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 8,
+    "fields": {
+      "summary": "homework8",
+      "description": "",
+      "status": 1,
+      "type": [2, 3],
+      "added_date": "2024-07-11T09:44:12.123Z",
+      "updated_date": "2024-07-11T09:44:12.123Z"
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 9,
+    "fields": {
+      "summary": "homework9",
+      "description": "",
+      "status": 3,
+      "type": [1],
+      "added_date": "2024-07-11T09:45:05.234Z",
+      "updated_date": "2024-07-11T09:45:05.234Z"
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 10,
+    "fields": {
+      "summary": "homework10",
+      "description": "",
+      "status": 2,
+      "type": [2],
+      "added_date": "2024-07-11T09:45:24.345Z",
+      "updated_date": "2024-07-11T09:45:24.345Z"
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 11,
+    "fields": {
+      "summary": "homework11",
+      "description": "",
+      "status": 1,
+      "type": [3],
+      "added_date": "2024-07-11T09:45:45.456Z",
+      "updated_date": "2024-07-11T09:45:45.456Z"
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 12,
+    "fields": {
+      "summary": "homework12",
+      "description": "",
+      "status": 3,
+      "type": [1, 2],
+      "added_date": "2024-07-11T09:46:01.567Z",
+      "updated_date": "2024-07-11T09:46:01.567Z"
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 13,
+    "fields": {
+      "summary": "homework13",
+      "description": "",
+      "status": 2,
+      "type": [3],
+      "added_date": "2024-07-11T09:46:19.678Z",
+      "updated_date": "2024-07-11T09:46:19.678Z"
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 14,
+    "fields": {
+      "summary": "homework14",
+      "description": "",
+      "status": 1,
+      "type": [2],
+      "added_date": "2024-07-11T09:46:35.789Z",
+      "updated_date": "2024-07-11T09:46:35.789Z"
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 15,
+    "fields": {
+      "summary": "homework15",
+      "description": "",
+      "status": 2,
+      "type": [1],
+      "added_date": "2024-07-11T09:46:51.890Z",
+      "updated_date": "2024-07-11T09:46:51.890Z"
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 16,
+    "fields": {
+      "summary": "homework16",
+      "description": "",
+      "status": 3,
+      "type": [3],
+      "added_date": "2024-07-11T09:47:05.901Z",
+      "updated_date": "2024-07-11T09:47:05.901Z"
     }
   }
 ]
