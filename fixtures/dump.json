@@ -1,254 +1,298 @@
 [
-  {
-    "model": "auth.user",
-    "pk": 1,
-    "fields": {
-      "password": "pbkdf2_sha256$720000$V1TSxtrL2QXR4WwYwIUWsn$hFM1O7qd7kyUD9uC0QgczWeIN6dcjC/G5X1MV2HpxMI=",
-      "last_login": "2024-07-11T09:39:11.383Z",
-      "is_superuser": true,
-      "username": "admin",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2024-07-11T09:38:59.522Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
+{
     "model": "webapp.type",
     "pk": 1,
     "fields": {
-      "name": "Task"
+        "name": "Task"
     }
-  },
-  {
+},
+{
     "model": "webapp.type",
     "pk": 2,
     "fields": {
-      "name": "Bug"
+        "name": "Bug"
     }
-  },
-  {
+},
+{
     "model": "webapp.type",
     "pk": 3,
     "fields": {
-      "name": "Enhancement"
+        "name": "Enhancement"
     }
-  },
-  {
+},
+{
     "model": "webapp.status",
     "pk": 1,
     "fields": {
-      "name": "New"
+        "name": "New"
     }
-  },
-  {
+},
+{
     "model": "webapp.status",
     "pk": 2,
     "fields": {
-      "name": "In Progress"
+        "name": "In Progress"
     }
-  },
-  {
+},
+{
     "model": "webapp.status",
     "pk": 3,
     "fields": {
-      "name": "Done"
+        "name": "Done"
     }
-  },
-  {
+},
+{
+    "model": "webapp.project",
+    "pk": 1,
+    "fields": {
+        "date_started": "2024-07-21",
+        "date_ended": null,
+        "name": "Homework59",
+        "description": "Homework 59"
+    }
+},
+{
     "model": "webapp.task",
     "pk": 1,
     "fields": {
-      "summary": "homework1",
-      "description": "",
-      "status": 3,
-      "type": [2],
-      "added_date": "2024-07-11T09:41:03.950Z",
-      "updated_date": "2024-07-11T09:41:51.568Z"
+        "summary": "homework1",
+        "description": "",
+        "status": 3,
+        "project": 1,
+        "added_date": "2024-07-11T09:41:03.950Z",
+        "updated_date": "2024-07-11T09:41:51.568Z",
+        "type": [
+            2
+        ]
     }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 2,
-    "fields": {
-      "summary": "homework2",
-      "description": "",
-      "status": 1,
-      "type": [1],
-      "added_date": "2024-07-11T09:41:17.758Z",
-      "updated_date": "2024-07-11T09:42:02.043Z"
-    }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 3,
     "fields": {
-      "summary": "homework3",
-      "description": "",
-      "status": 2,
-      "type": [3],
-      "added_date": "2024-07-11T09:42:19.665Z",
-      "updated_date": "2024-07-11T09:42:19.665Z"
+        "summary": "homework3",
+        "description": "",
+        "status": 2,
+        "project": 1,
+        "added_date": "2024-07-11T09:42:19.665Z",
+        "updated_date": "2024-07-11T09:42:19.665Z",
+        "type": [
+            3
+        ]
     }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 4,
     "fields": {
-      "summary": "homework4",
-      "description": "",
-      "status": 3,
-      "type": [1, 3],
-      "added_date": "2024-07-11T09:42:39.071Z",
-      "updated_date": "2024-07-11T09:42:39.071Z"
+        "summary": "homework4",
+        "description": "",
+        "status": 3,
+        "project": 1,
+        "added_date": "2024-07-11T09:42:39.071Z",
+        "updated_date": "2024-07-11T09:42:39.071Z",
+        "type": [
+            1,
+            3
+        ]
     }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 5,
-    "fields": {
-      "summary": "homework5",
-      "description": "",
-      "status": 1,
-      "type": [2],
-      "added_date": "2024-07-11T09:42:58.086Z",
-      "updated_date": "2024-07-11T09:42:58.086Z"
-    }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 6,
     "fields": {
-      "summary": "homework6",
-      "description": "",
-      "status": 2,
-      "type": [3],
-      "added_date": "2024-07-11T09:43:15.569Z",
-      "updated_date": "2024-07-11T09:43:15.569Z"
+        "summary": "homework6",
+        "description": "",
+        "status": 2,
+        "project": 1,
+        "added_date": "2024-07-11T09:43:15.569Z",
+        "updated_date": "2024-07-11T09:43:15.569Z",
+        "type": [
+            3
+        ]
     }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 7,
-    "fields": {
-      "summary": "homework7",
-      "description": "",
-      "status": 2,
-      "type": [1],
-      "added_date": "2024-07-11T09:43:26.943Z",
-      "updated_date": "2024-07-11T09:43:26.943Z"
-    }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 8,
     "fields": {
-      "summary": "homework8",
-      "description": "",
-      "status": 1,
-      "type": [2, 3],
-      "added_date": "2024-07-11T09:44:12.123Z",
-      "updated_date": "2024-07-11T09:44:12.123Z"
+        "summary": "homework8",
+        "description": "",
+        "status": 1,
+        "project": 1,
+        "added_date": "2024-07-11T09:44:12.123Z",
+        "updated_date": "2024-07-11T09:44:12.123Z",
+        "type": [
+            2,
+            3
+        ]
     }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 9,
     "fields": {
-      "summary": "homework9",
-      "description": "",
-      "status": 3,
-      "type": [1],
-      "added_date": "2024-07-11T09:45:05.234Z",
-      "updated_date": "2024-07-11T09:45:05.234Z"
+        "summary": "homework9",
+        "description": "",
+        "status": 3,
+        "project": 1,
+        "added_date": "2024-07-11T09:45:05.234Z",
+        "updated_date": "2024-07-11T09:45:05.234Z",
+        "type": [
+            1
+        ]
     }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 10,
     "fields": {
-      "summary": "homework10",
-      "description": "",
-      "status": 2,
-      "type": [2],
-      "added_date": "2024-07-11T09:45:24.345Z",
-      "updated_date": "2024-07-11T09:45:24.345Z"
+        "summary": "homework10",
+        "description": "",
+        "status": 2,
+        "project": 1,
+        "added_date": "2024-07-11T09:45:24.345Z",
+        "updated_date": "2024-07-11T09:45:24.345Z",
+        "type": [
+            2
+        ]
     }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 11,
     "fields": {
-      "summary": "homework11",
-      "description": "",
-      "status": 1,
-      "type": [3],
-      "added_date": "2024-07-11T09:45:45.456Z",
-      "updated_date": "2024-07-11T09:45:45.456Z"
+        "summary": "homework11",
+        "description": "",
+        "status": 1,
+        "project": 1,
+        "added_date": "2024-07-11T09:45:45.456Z",
+        "updated_date": "2024-07-11T09:45:45.456Z",
+        "type": [
+            3
+        ]
     }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 12,
     "fields": {
-      "summary": "homework12",
-      "description": "",
-      "status": 3,
-      "type": [1, 2],
-      "added_date": "2024-07-11T09:46:01.567Z",
-      "updated_date": "2024-07-11T09:46:01.567Z"
+        "summary": "homework12",
+        "description": "",
+        "status": 3,
+        "project": 1,
+        "added_date": "2024-07-11T09:46:01.567Z",
+        "updated_date": "2024-07-11T09:46:01.567Z",
+        "type": [
+            1,
+            2
+        ]
     }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 13,
     "fields": {
-      "summary": "homework13",
-      "description": "",
-      "status": 2,
-      "type": [3],
-      "added_date": "2024-07-11T09:46:19.678Z",
-      "updated_date": "2024-07-11T09:46:19.678Z"
+        "summary": "homework13",
+        "description": "",
+        "status": 2,
+        "project": 1,
+        "added_date": "2024-07-11T09:46:19.678Z",
+        "updated_date": "2024-07-11T09:46:19.678Z",
+        "type": [
+            3
+        ]
     }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 14,
     "fields": {
-      "summary": "homework14",
-      "description": "",
-      "status": 1,
-      "type": [2],
-      "added_date": "2024-07-11T09:46:35.789Z",
-      "updated_date": "2024-07-11T09:46:35.789Z"
+        "summary": "homework14",
+        "description": "",
+        "status": 1,
+        "project": 1,
+        "added_date": "2024-07-11T09:46:35.789Z",
+        "updated_date": "2024-07-11T09:46:35.789Z",
+        "type": [
+            2
+        ]
     }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 15,
     "fields": {
-      "summary": "homework15",
-      "description": "",
-      "status": 2,
-      "type": [1],
-      "added_date": "2024-07-11T09:46:51.890Z",
-      "updated_date": "2024-07-11T09:46:51.890Z"
+        "summary": "homework15",
+        "description": "",
+        "status": 2,
+        "project": 1,
+        "added_date": "2024-07-11T09:46:51.890Z",
+        "updated_date": "2024-07-11T09:46:51.890Z",
+        "type": [
+            1
+        ]
     }
-  },
-  {
+},
+{
     "model": "webapp.task",
     "pk": 16,
     "fields": {
-      "summary": "homework16",
-      "description": "",
-      "status": 3,
-      "type": [3],
-      "added_date": "2024-07-11T09:47:05.901Z",
-      "updated_date": "2024-07-11T09:47:05.901Z"
+        "summary": "homework16",
+        "description": "",
+        "status": 3,
+        "project": 1,
+        "added_date": "2024-07-11T09:47:05.901Z",
+        "updated_date": "2024-07-11T09:47:05.901Z",
+        "type": [
+            3
+        ]
     }
-  }
+},
+{
+    "model": "webapp.task",
+    "pk": 24,
+    "fields": {
+        "summary": "Homework2",
+        "description": "",
+        "status": 1,
+        "project": 1,
+        "added_date": "2024-07-15T10:31:51.636Z",
+        "updated_date": "2024-07-15T10:41:42.037Z",
+        "type": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 27,
+    "fields": {
+        "summary": "Homework 4",
+        "description": "Homework 4 Homework 4",
+        "status": 2,
+        "project": 1,
+        "added_date": "2024-07-15T10:32:56.358Z",
+        "updated_date": "2024-07-15T11:18:28.798Z",
+        "type": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 29,
+    "fields": {
+        "summary": "Хоумуорк",
+        "description": "",
+        "status": 1,
+        "project": 1,
+        "added_date": "2024-07-18T17:30:00.873Z",
+        "updated_date": "2024-07-18T17:30:00.873Z",
+        "type": [
+            2
+        ]
+    }
+}
 ]

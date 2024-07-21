@@ -1,0 +1,1 @@
+from webapp.views.task_views import AddTaskView, TaskDeleteView, TasksListView, TaskDetailView, TaskUpdateView

@@ -11,3 +11,5 @@
 
 
 5
+
+Task.objects.exclude(is_deleted='True')

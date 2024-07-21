@@ -1,22 +1,21 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, ListView
 
 from webapp.forms import TaskForm
 from webapp.models import Task
 
 
-class TasksListView(TemplateView):
-    template_name = 'task_list.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['tasks'] = Task.objects.all()
-        return context
+class TasksListView(ListView):
+    model = Task
+    template_name = "task_templates/task_list.html"
+    ordering = "-added_date"
+    context_object_name = "tasks"
+    paginate_by = 5
 
 
 class AddTaskView(FormView):
-    template_name = "task_add.html"
+    template_name = "task_templates/task_add.html"
     form_class = TaskForm
 
     def form_valid(self, form):
@@ -25,7 +24,7 @@ class AddTaskView(FormView):
 
 
 class TaskDetailView(TemplateView):
-    template_name = 'task_detail.html'
+    template_name = 'task_templates/task_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -35,7 +34,7 @@ class TaskDetailView(TemplateView):
 
 
 class TaskUpdateView(FormView):
-    template_name = 'task_update.html'
+    template_name = 'task_templates/task_update.html'
     form_class = TaskForm
 
     def dispatch(self, request, *args, **kwargs):
@@ -54,6 +53,7 @@ class TaskUpdateView(FormView):
         context = super().get_context_data(**kwargs)
         context['task'] = self.task
         return context
+
     def form_valid(self, form):
         form.save()
         return redirect('task_view', pk=self.task.pk)
@@ -65,7 +65,7 @@ class TaskDeleteView(View):
 
     def get(self, request, pk, *args, **kwargs):
         task = get_object_or_404(Task, pk=pk)
-        return render(request, "task_delete.html", {'task': task})
+        return render(request, "task_templates/task_delete.html", {'task': task})
 
     def post(self, request, pk, *args, **kwargs):
         task = get_object_or_404(Task, pk=pk)

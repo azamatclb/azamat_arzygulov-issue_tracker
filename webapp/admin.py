@@ -1,9 +1,16 @@
 from django.contrib import admin
 
-from webapp.models import Task, Type, Status
+from webapp.models import Task, Type, Status, Project
 
 
 # Register your models here.
+
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
+    list_display_links = ['id', 'name']
+    list_filter = ['date_started', 'date_ended', 'name']
+    # readonly_fields = ['added_date', 'updated_date']
+    search_fields = ['id', 'name']
 
 
 class TaskAdmin(admin.ModelAdmin):
@@ -27,3 +34,4 @@ class StatusAdmin(admin.ModelAdmin):
 admin.site.register(Task, TaskAdmin)
 admin.site.register(Type, TypeAdmin)
 admin.site.register(Status, StatusAdmin)
+admin.site.register(Project, ProjectAdmin)

@@ -1,0 +1,30 @@
+<div class="pagination mb-3 mt-1">
+    <span class="step-links">
+        <a href="?page=1">&laquo;</a>
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true"><i
+                    class="bi bi-arrow-left"></i></span></a>
+        {% else %}
+            <span class="page-disabled"><span aria-hidden="true"><i class="bi bi-arrow-left"></i></span></span>
+        {% endif %}
+        {#<form class="current-page" method="get">#}
+                        {#<label for="page">#}
+                            {#Страница <input type="text" name="page" id="page" value="{{ page_obj.number }}">#}
+                            {#из {{ page_obj.paginator.num_pages }}.#}
+                        {#</label>#}
+                    {#</form>#}
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <strong>{{ num }}</strong>
+            {% else %}
+                <a href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"><span aria-hidden="true"><i class="bi bi-arrow-right"></i></span></a>
+        {% else %}
+            <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+        {% endif %}
+        <a href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                </span>
+</div>
