@@ -62,9 +62,9 @@
                                 <i class="bi bi-pencil-square"></i>
                                 Редактировать проект
                             </a>
-                            <a href="" class="btn text-light">
-{#                                {% url 'project_delete' project.pk %}#}
+                            <a href="{% url 'project_delete' project.pk %}" class="btn text-light">
                                 <i class="bi bi-folder-x"></i>
+                                Удалить проект
                             </a>
                         </div>
                     </div>

@@ -26,9 +26,13 @@
                     Добавить задачу
                 </a>
                 <a href="{% url 'project_update' project.pk %}" class="btn btn-primary">
-                    
+
                     <i class="bi bi-pencil-square"></i>
                     Редактировать проект
+                </a>
+                <a href="{% url 'project_delete' project.pk %}" class="btn btn-primary">
+                    <i class="bi bi-folder-x"></i>
+                    Удалить проект
                 </a>
             </div>
         </div>

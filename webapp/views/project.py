@@ -67,3 +67,9 @@ class ProjectCreateView(CreateView):
     model = Project
     form_class = ProjectForm
     success_url = reverse_lazy('project_list')
+
+
+class ProjectDeleteView(DeleteView):
+    template_name = 'project_templates/project_delete.html'
+    success_url = reverse_lazy('project_list')
+    model = Project
