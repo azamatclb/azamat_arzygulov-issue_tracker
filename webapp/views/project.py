@@ -4,9 +4,11 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, FormView, ListView, DetailView, UpdateView, CreateView, DeleteView
 
-from webapp.forms import ProjectForm, SearchForm
+from webapp.forms import SearchForm
 from webapp.models import Project
 
+
+# ProjectForm
 
 class ProjectListView(ListView):
     template_name = 'project_templates/project_list.html'
@@ -44,3 +46,13 @@ class ProjectListView(ListView):
         return form
 
 
+class ProjectDetailView(DetailView):
+    model = Project
+    template_name = 'project_templates/project_detail.html'
+    context_object_name = 'project'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        project = self.get_object()
+        context['tasks'] = project.tasks.all()
+        return context
