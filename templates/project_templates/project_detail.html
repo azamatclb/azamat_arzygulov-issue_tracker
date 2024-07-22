@@ -6,7 +6,6 @@
 
 {% block content %}
     <div class="container mt-4">
-        <!-- Проект как твит -->
         <div class="tweet-card card mb-4">
             <div class="card-body">
                 <div class="tweet-header d-flex align-items-center mb-2">
@@ -21,12 +20,11 @@
                     <i class="bi bi-arrow-left-short"></i>
                     Вернуться к списку проектов
                 </a>
-                <a href="{% url 'task_add' %}" class="btn btn-primary">
+                <a href="{% url 'task_add' project.pk %}" class="btn btn-primary">
                     <i class="bi bi-folder-plus"></i>
                     Добавить задачу
                 </a>
                 <a href="{% url 'project_update' project.pk %}" class="btn btn-primary">
-
                     <i class="bi bi-pencil-square"></i>
                     Редактировать проект
                 </a>
@@ -66,5 +64,4 @@
             {% endfor %}
         </div>
     </div>
-
 {% endblock %}

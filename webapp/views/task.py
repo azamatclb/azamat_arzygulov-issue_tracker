@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import TemplateView, FormView, ListView, UpdateView, DeleteView
+from django.views.generic import ListView, UpdateView, DeleteView, CreateView, DetailView
 
 from webapp.forms import TaskForm
-from webapp.models import Task
+from webapp.models import Task, Project
 
 
 class TasksListView(ListView):
@@ -14,27 +14,36 @@ class TasksListView(ListView):
     paginate_by = 5
 
 
-class AddTaskView(FormView):
+class AddTaskView(CreateView):
     template_name = "task_templates/task_add.html"
+    model = Task
     form_class = TaskForm
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        project_pk = self.kwargs.get('project_pk')
-        kwargs['project_pk'] = project_pk
+        kwargs['project_pk'] = self.kwargs.get('pk')
         return kwargs
 
     def form_valid(self, form):
-        task = form.save()
-        return redirect('task_view', pk=task.pk)
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        task = form.save(commit=False)
+        task.project = project
+        task.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        project_pk = self.kwargs.get('pk')
+        return reverse_lazy('project_detail', kwargs={'pk': project_pk})
 
 
-class TaskDetailView(TemplateView):
+class TaskDetailView(DetailView):
+    model = Task
     template_name = 'task_templates/task_detail.html'
+    context_object_name = 'task'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        task = get_object_or_404(Task, pk=kwargs.get('pk'))
+        task = self.get_object()
         context['task'] = task
         return context
 

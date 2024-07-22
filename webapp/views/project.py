@@ -1,8 +1,6 @@
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views import View
-from django.views.generic import TemplateView, FormView, ListView, DetailView, UpdateView, CreateView, DeleteView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 
 from webapp.forms import SearchForm, ProjectForm
 from webapp.models import Project
@@ -56,17 +54,17 @@ class ProjectDetailView(DetailView):
         return context
 
 
-class ProjectUpdateView(UpdateView):
-    template_name = 'project_templates/project_update.html'
-    form_class = ProjectForm
-    model = Project
-
-
 class ProjectCreateView(CreateView):
     template_name = 'project_templates/project_create.html'
     model = Project
     form_class = ProjectForm
     success_url = reverse_lazy('project_list')
+
+
+class ProjectUpdateView(UpdateView):
+    template_name = 'project_templates/project_update.html'
+    form_class = ProjectForm
+    model = Project
 
 
 class ProjectDeleteView(DeleteView):
