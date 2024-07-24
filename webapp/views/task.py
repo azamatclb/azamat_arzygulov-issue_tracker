@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView, DetailView
 
-from webapp.forms import TaskForm
+from webapp.forms.task import TaskForm
 from webapp.models import Task, Project
 
 
@@ -32,8 +32,7 @@ class AddTaskView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        project_pk = self.kwargs.get('pk')
-        return reverse_lazy('project_detail', kwargs={'pk': project_pk})
+        return reverse('task_view', kwargs={"pk": self.object.pk})
 
 
 class TaskDetailView(DetailView):

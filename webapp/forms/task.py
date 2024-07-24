@@ -2,15 +2,6 @@ from django import forms
 from django.core.exceptions import ValidationError
 from webapp.models import Type, Status, Task, Project
 
-class TypeForm(forms.ModelForm):
-    class Meta:
-        model = Type
-        fields = ['name']
-
-class StatusForm(forms.ModelForm):
-    class Meta:
-        model = Status
-        fields = ['name']
 
 class TaskForm(forms.ModelForm):
     summary = forms.CharField(max_length=50, label="Краткое описание")

@@ -1,6 +1,5 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from django.urls import reverse
 
 from webapp.models import Project
 

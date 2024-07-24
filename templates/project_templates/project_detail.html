@@ -9,55 +9,56 @@
         <div class="tweet-card card mb-4">
             <div class="card-body">
                 <div class="tweet-header d-flex align-items-center mb-2">
-                    <h5 class="card-title mb-0">{{ project.name }}</h5>
+                    <h5 class="card-title mb-0">Проект: <strong>{{ project.name }}</strong></h5>
                 </div>
-                <p class="card-text">{{ project.description|default:"Описание проекта отсутствует" }}</p>
-                <p class="card-text"><small class="text-muted">Дата
-                    начала: {{ project.date_started|date:'Y-m-d' }}</small></p>
-                <p class="card-text"><small class="text-muted">Дата
-                    окончания: {{ project.date_ended|date:'Y-m-d' }}</small></p>
+                <p class="card-text">Описание: {{ project.description }}</p>
+                <p class="card-text">
+                    <small class="text-muted">Дата начала: {{ project.date_started|date:'Y-m-d'}}</small>
+                </p>
+                <p class="card-text">
+                    <small class="text-muted">Дата окончания: {{ project.date_ended|date:'Y-m-d' }}</small>
+                </p>
                 <a href="{% url 'project_list' %}" class="btn btn-primary">
-                    <i class="bi bi-arrow-left-short"></i>
-                    Вернуться к списку проектов
+                    <i class="bi bi-arrow-left-short"></i> Вернуться к списку проектов
                 </a>
                 <a href="{% url 'task_add' project.pk %}" class="btn btn-primary">
-                    <i class="bi bi-folder-plus"></i>
-                    Добавить задачу
+                    <i class="bi bi-folder-plus"></i> Добавить задачу
                 </a>
                 <a href="{% url 'project_update' project.pk %}" class="btn btn-primary">
-                    <i class="bi bi-pencil-square"></i>
-                    Редактировать проект
+                    <i class="bi bi-pencil-square"></i> Редактировать проект
                 </a>
                 <a href="{% url 'project_delete' project.pk %}" class="btn btn-primary">
-                    <i class="bi bi-folder-x"></i>
-                    Удалить проект
+                    <i class="bi би-folder-x"></i> Удалить проект
                 </a>
             </div>
         </div>
 
-        <h3 class="mb-4">Комментарии</h3>
-        <div class="tasks-container">
+        <h3 class="mb-4">Задачи</h3>
+
+        <div class="row">
             {% for task in tasks %}
-                <div class="comment-card card mb-3">
-                    <div class="card-body">
-                        <p class="card-text"><strong>{{ task.summary }}</strong></p>
-                        <p class="card-text"><small class="text-muted">Проект: {{ task.project.name }}</small></p>
-                        <p class="card-text"><small class="text-muted">Тип:
-                            {% for type in task.type.all %}
-                                <span class="badge bg-secondary">{{ type }}</span>
-                            {% endfor %}
-                        </small></p>
-                        <p class="card-text"><small class="text-muted">Статус: {{ task.status }}</small></p>
-                        <div class="mt-2">
-                            <a href="{% url 'task_view' task.pk %}" class="btn btn-info text-light me-2">
-                                Просмотр
-                            </a>
-                            <a href="{% url 'task_update' task.pk %}" class="btn btn-warning text-light me-2">
-                                Редактировать
-                            </a>
-                            <a href="{% url 'task_delete' task.pk %}" class="btn btn-danger text-light">
-                                Удалить
-                            </a>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="comment-card card h-100">
+                        <div class="card-body">
+                            <p class="card-text"><strong>{{ task.summary }}</strong></p>
+                            <p class="card-text">
+                                <small class="text-muted">Проект: {{ task.project.name }}</small>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">Тип:
+                                    {% for type in task.type.all %}
+                                        <span class="badge bg-secondary">{{ type }}</span>
+                                    {% endfor %}
+                                </small>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">Статус: {{ task.status }}</small>
+                            </p>
+                            <div class="mt-2">
+                                <a href="{% url 'task_view' task.pk %}" class="btn btn-info text-light mb-1 ">Просмотр</a>
+                                <a href="{% url 'task_update' task.pk %}" class="btn btn-warning text-light">Редактировать</a>
+                                <a href="{% url 'task_delete' task.pk %}" class="btn btn-danger text-light">Удалить</a>
+                            </div>
                         </div>
                     </div>
                 </div>

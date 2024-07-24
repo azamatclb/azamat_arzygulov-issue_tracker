@@ -20,4 +20,4 @@ class Task(models.Model):
         verbose_name_plural = "Задачи"
 
     def get_absolute_url(self):
-        return reverse("project_detail", kwargs={'pk': self.pk})
+        return reverse("task_view", kwargs={'pk': self.pk})
