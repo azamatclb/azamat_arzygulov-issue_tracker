@@ -23,9 +23,9 @@
                 <p class="card-text">
                     <small class="text-muted">Проект: {{ task.project.name }}</small>
                 </p>
-                <a href="{% url 'task_update' task.pk %}" class="btn btn-warning">Редактировать</a>
-                <a href="{% url 'task_delete' task.pk %}" class="btn btn-danger">Удалить</a>
-                <a href="{% url 'project_detail' task.project.pk %}" class="btn btn-primary">Вернуться к проекту</a>
+                <a href="{% url 'webapp:task_update' task.pk %}" class="btn btn-warning">Редактировать</a>
+                <a href="{% url 'webapp:task_delete' task.pk %}" class="btn btn-danger">Удалить</a>
+                <a href="{% url 'webapp:project_detail' task.project.pk %}" class="btn btn-primary">Вернуться к проекту</a>
             </div>
         </div>
     </div>

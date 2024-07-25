@@ -32,7 +32,7 @@ class AddTaskView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('task_view', kwargs={"pk": self.object.pk})
+        return reverse('webapp:task_view', kwargs={"pk": self.object.pk})
 
 
 class TaskDetailView(DetailView):
@@ -53,10 +53,10 @@ class TaskUpdateView(UpdateView):
     model = Task
 
     def get_success_url(self):
-        return reverse('task_view', kwargs={"pk": self.object.pk})
+        return reverse('webapp:task_view', kwargs={"pk": self.object.pk})
 
 
 class TaskDeleteView(DeleteView):
     template_name = 'task_templates/task_delete.html'
     model = Task
-    success_url = reverse_lazy('project_list')
+    success_url = reverse_lazy('webapp:project_list')

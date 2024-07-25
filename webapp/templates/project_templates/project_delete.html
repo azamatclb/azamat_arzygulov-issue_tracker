@@ -7,7 +7,7 @@
     <div class="container">
         {% if project.tasks.exists %}
             <h3>Нельзя удалить проект так как у него есть задачи</h3>
-            <a class="btn btn-primary" href="{% url 'project_detail' project.pk %}" role="button">Вернуться к проекту</a>
+            <a class="btn btn-primary" href="{% url 'webapp:project_detail' project.pk %}" role="button">Вернуться к проекту</a>
         {% else %}
             <div class="question">
                 <h3>Вы уверены что хотите удалить данный проект: <strong>{{ project.name }}</strong></h3>
@@ -17,7 +17,7 @@
                 <div class="buttons">
 
                     <button type="submit" class="btn btn-danger">Удалить</button>
-                    <a class="btn btn-primary" href="{% url 'project_detail' project.pk %}" role="button">Отмена</a>
+                    <a class="btn btn-primary" href="{% url 'webapp:project_detail' project.pk %}" role="button">Отмена</a>
 
                 </div>
             </form>

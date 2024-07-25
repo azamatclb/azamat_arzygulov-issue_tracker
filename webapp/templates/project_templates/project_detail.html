@@ -18,16 +18,16 @@
                 <p class="card-text">
                     <small class="text-muted">Дата окончания: {{ project.date_ended|date:'Y-m-d' }}</small>
                 </p>
-                <a href="{% url 'project_list' %}" class="btn btn-primary">
+                <a href="{% url 'webapp:project_list' %}" class="btn btn-primary">
                     <i class="bi bi-arrow-left-short"></i> Вернуться к списку проектов
                 </a>
-                <a href="{% url 'task_add' project.pk %}" class="btn btn-primary">
+                <a href="{% url 'webapp:task_add' project.pk %}" class="btn btn-primary">
                     <i class="bi bi-folder-plus"></i> Добавить задачу
                 </a>
-                <a href="{% url 'project_update' project.pk %}" class="btn btn-primary">
+                <a href="{% url 'webapp:project_update' project.pk %}" class="btn btn-primary">
                     <i class="bi bi-pencil-square"></i> Редактировать проект
                 </a>
-                <a href="{% url 'project_delete' project.pk %}" class="btn btn-primary">
+                <a href="{% url 'webapp:project_delete' project.pk %}" class="btn btn-primary">
                     <i class="bi би-folder-x"></i> Удалить проект
                 </a>
             </div>
@@ -55,9 +55,9 @@
                                 <small class="text-muted">Статус: {{ task.status }}</small>
                             </p>
                             <div class="mt-2">
-                                <a href="{% url 'task_view' task.pk %}" class="btn btn-info text-light mb-1 ">Просмотр</a>
-                                <a href="{% url 'task_update' task.pk %}" class="btn btn-warning text-light">Редактировать</a>
-                                <a href="{% url 'task_delete' task.pk %}" class="btn btn-danger text-light">Удалить</a>
+                                <a href="{% url 'webapp:task_view' task.pk %}" class="btn btn-info text-light mb-1 ">Просмотр</a>
+                                <a href="{% url 'webapp:task_update' task.pk %}" class="btn btn-warning text-light">Редактировать</a>
+                                <a href="{% url 'webapp:task_delete' task.pk %}" class="btn btn-danger text-light">Удалить</a>
                             </div>
                         </div>
                     </div>
