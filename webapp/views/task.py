@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView, DetailView
@@ -14,7 +15,7 @@ class TasksListView(ListView):
     paginate_by = 5
 
 
-class AddTaskView(CreateView):
+class AddTaskView(LoginRequiredMixin, CreateView):
     template_name = "task_templates/task_add.html"
     model = Task
     form_class = TaskForm
@@ -47,7 +48,7 @@ class TaskDetailView(DetailView):
         return context
 
 
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'task_templates/task_update.html'
     form_class = TaskForm
     model = Task
