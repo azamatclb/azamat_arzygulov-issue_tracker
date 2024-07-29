@@ -106,6 +106,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_URL = 'account:login'
 
+LOGIN_REDIRECT_URL = 'webapp:project_list'
+LOGOUT_REDIRECT_URL = 'webapp:project_list'
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
