@@ -23,13 +23,15 @@
                 <p class="card-text">
                     <small class="text-muted">Проект: {{ task.project.name }}</small>
                 </p>
-                {% if user.is_authenticated %}
+                {% if perms.webapp.change_task or user == task.author %}
                     <a href="{% url 'webapp:task_update' task.pk %}" class="btn btn-warning">Редактировать</a>
-                    <a href="{% url 'webapp:task_delete' task.pk %}" class="btn btn-danger">Удалить</a>
-                    <a href="{% url 'webapp:project_detail' task.project.pk %}" class="btn btn-primary">Вернуться к проекту</a>
-                {% else %}
-                    <a href="{% url 'webapp:project_detail' task.project.pk %}" class="btn btn-primary">Вернуться к проекту</a>
                 {% endif %}
+                {% if perms.webapp.delete_task or user == task.author %}
+                    <a href="{% url 'webapp:task_delete' task.pk %}" class="btn btn-danger">Удалить</a>
+                {% endif %}
+                <a href="{% url 'webapp:project_detail' task.project.pk %}" class="btn btn-primary">Вернуться к
+                    проекту</a>
+
             </div>
 
         </div>

@@ -48,9 +48,8 @@ class TaskUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     permission_required = 'webapp.change_task'
 
     def has_permission(self):
-        project = self.get_object()
-        user = self.request.user
-        return user.groups.filter(name='manager').exists() or user == project.author
+        return super().has_permission() or self.request.user == self.get_object().author or self.request.user.groups.filter(
+            name='manager')
 
     def get_success_url(self):
         return reverse('webapp:task_view', kwargs={"pk": self.object.pk})
@@ -61,6 +60,7 @@ class TaskDeleteView(DeleteView, LoginRequiredMixin, PermissionRequiredMixin):
     model = Task
     success_url = reverse_lazy('webapp:project_list')
     permission_required = 'webapp.delete_task'
+
 
     def has_permission(self):
         project = self.get_object()

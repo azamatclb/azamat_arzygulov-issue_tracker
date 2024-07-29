@@ -9,7 +9,7 @@
         <div class="tweet-card card mb-4">
             <div class="card-body">
                 <div class="tweet-header d-flex align-items-center mb-2">
-                    <h5 class="card-title mb-0 me-5">Проект: <strong >{{ project.name }}</strong></h5>
+                    <h5 class="card-title mb-0 me-5">Проект: <strong>{{ project.name }}</strong></h5>
                     <h5 class="card-title mb-0 ms-5">Автор: <strong>{{ project.author }}</strong></h5>
 
                 </div>
@@ -24,14 +24,17 @@
                 <a href="{% url 'webapp:project_list' %}" class="btn btn-primary">
                     <i class="bi bi-arrow-left-short"></i> Вернуться к списку проектов
                 </a>
-                {% if user.is_authenticated %}
-
+                {% if perms.webapp.add_task or user == project.author %}
                     <a href="{% url 'webapp:task_add' project.pk %}" class="btn btn-primary">
                         <i class="bi bi-folder-plus"></i> Добавить задачу
                     </a>
+                {% endif %}
+                {% if perms.webapp.change_project or user == project.author %}
                     <a href="{% url 'webapp:project_update' project.pk %}" class="btn btn-primary">
                         <i class="bi bi-pencil-square"></i> Редактировать проект
                     </a>
+                {% endif %}
+                {% if perms.webapp.delete_project or user == project.author %}
                     <a href="{% url 'webapp:project_delete' project.pk %}" class="btn btn-primary">
                         <i class="bi би-folder-x"></i> Удалить проект
                     </a>
@@ -62,17 +65,18 @@
                                 <small class="text-muted">Статус: {{ task.status }}</small>
                             </p>
                             <div class="mt-1">
-                                {% if user.is_authenticated %}
-                                    <a href="{% url 'webapp:task_view' task.pk %}"
-                                       class="btn btn-info text-light mb-1 ">Просмотр</a>
+
+                                <a href="{% url 'webapp:task_view' task.pk %}"
+                                   class="btn btn-info text-light mb-1 ">Просмотр</a>
+                                {% if perms.webapp.change_task or user == project.author %}
                                     <a href="{% url 'webapp:task_update' task.pk %}"
                                        class="btn btn-warning text-light mb-1 ">Редактировать</a>
-                                    <a href="{% url 'webapp:task_delete' task.pk %}" class="btn btn-danger text-light">Удалить</a>
-                                {% else %}
-                                    <a href="{% url 'webapp:task_view' task.pk %}"
-                                       class="btn btn-info text-light mb-1 ">Просмотр</a>
-
                                 {% endif %}
+                                {% if perms.webapp.delete_task or user == project.author %}
+                                    <a href="{% url 'webapp:task_delete' task.pk %}" class="btn btn-danger text-light">Удалить</a>
+                                {% endif %}
+
+
                             </div>
                         </div>
                     </div>

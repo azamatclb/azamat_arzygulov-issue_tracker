@@ -63,16 +63,19 @@
                                 </svg>
                                 Подробнее
                             </a>
-                            {% if user.is_authenticated %}
+                            {% if perms.webapp.change_project or user == project.author %}
                                 <a href="{% url 'webapp:project_update' project.pk %}" class="btn text-light">
                                     <i class="bi bi-pencil-square"></i>
                                     Редактировать проект
                                 </a>
+                            {% endif %}
+                            {% if perms.webapp.delete_project or user == project.author %}
                                 <a href="{% url 'webapp:project_delete' project.pk %}" class="btn text-light">
                                     <i class="bi bi-folder-x"></i>
                                     Удалить проект
                                 </a>
                             {% endif %}
+
                         </div>
                     </div>
                 </div>
