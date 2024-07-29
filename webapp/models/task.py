@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 
@@ -10,6 +11,8 @@ class Task(models.Model):
     project = models.ForeignKey('Project', on_delete=models.RESTRICT, verbose_name='Проект', related_name='tasks')
     added_date = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     updated_date = models.DateTimeField(auto_now=True, verbose_name="Время обновления")
+
+    author = models.ForeignKey(get_user_model(), related_name="task", on_delete=models.SET_DEFAULT, default=1)
 
     def __str__(self):
         return f"{self.id} {self.summary} {self.status}"

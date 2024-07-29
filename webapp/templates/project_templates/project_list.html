@@ -42,7 +42,7 @@
 {% endblock %}
 
 {% block content %}
-        {{ request.user }}
+    {{ request.user }}
 
     <div class="container mt-3">
         {% if projects %}
@@ -52,6 +52,9 @@
                         <h5 class="card-title">{{ project.name }}</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">{{ project.date_started|date:'Y-m-d' }}</h6>
                         <h6 class="card-subtitle mb-2 text-body-secondary">{{ project.date_ended|date:'Y-m-d' }}</h6>
+
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Owner: {{ project.author }}</h6>
+
                         <div class="btn btn-primary mt-4">
                             <a href="{% url 'webapp:project_detail' project.pk %}" class="btn text-light">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

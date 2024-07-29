@@ -58,7 +58,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
-                           href="{% url 'account:registration' %}">Регистрация</a>
+                           href="{% url 'account:registration' %}?next={{ request.get_full_path }}">Регистрация</a>
 
                     </li>
                 </ul>

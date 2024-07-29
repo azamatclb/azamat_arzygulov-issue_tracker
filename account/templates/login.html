@@ -18,6 +18,11 @@
         {% if next_param %}
             <input type="hidden" name="next" value="{{ next_param }}">
         {% endif %}
+        {% if has_error %}
+            <div class="alert alert-danger" role="alert">
+                Invalid username or password.
+            </div>
+        {% endif %}
         <button class="btn btn-primary mt-2" type="submit">Login</button>
     </form>
 {% endblock %}
